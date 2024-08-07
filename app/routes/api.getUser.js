@@ -28,16 +28,18 @@ export async function action({ request }) {
     }
   
     const user = await prisma.users.create({
-      data: {
-        customerId: data.customerId,
+    data: {
+        customerId: 9871234567890,
         products: {
-          create: data.products.map((product) => ({
-            productId: product.productId,
-            variantId: product.variantId,
-            createdAt: new Date(),
-          })),
+            create: [
+            {
+                productId: 12458275070584,
+                variantId: 12399485982459,
+                createdAt: new Date('2014-08-05T00:00:00.000Z')
+            }
+            ],
         },
-      }
+        },
     });
   
     return json(user);
